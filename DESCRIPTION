@@ -14,3 +14,5 @@ RoxygenNote: 6.1.1
 Imports: 
     grDevices,
     graphics
+URL: https://github.com/djnavarro/fifty
+BugReports: https://github.com/djnavarro/fifty/issues
