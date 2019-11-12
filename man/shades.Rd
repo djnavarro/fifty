@@ -4,10 +4,10 @@
 \alias{shades}
 \title{Palettes varying only in alpha}
 \usage{
-shades(name)
+shades(col)
 }
 \arguments{
-\item{name}{a colour name}
+\item{col}{a colour specification recognised by col2rgb}
 }
 \value{
 a palette generating function

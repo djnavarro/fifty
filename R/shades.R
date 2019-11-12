@@ -1,17 +1,20 @@
 
 #' Palettes varying only in alpha
 #'
-#' @param name a colour name
+#' @param col a colour specification recognised by col2rgb
 #'
 #' @return a palette generating function
 #' @export
-shades <- function(name) {
-  if(!(name %in% grDevices::colours())) {
-    stop("'name' must be a recognised colour()", call. = FALSE)
+shades <- function(col) {
+
+  x <- try(grDevices::col2rgb(col), silent = TRUE)
+  if(class(x) == "try-error") {
+    stop("'col' must be a recognised colour", call. = FALSE)
   }
+
   pal <- function(n = 50) {
     cols <- character(0)
-    base <- grDevices::col2rgb(name, alpha = TRUE)/255
+    base <- grDevices::col2rgb(col, alpha = TRUE)/255
     for(i in 1:n) {
       x <- base
       x["alpha"] <-1 - i/n
